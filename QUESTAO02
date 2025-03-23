@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+abstract class Questao{
+    public abstract void Executar();
+
+}
+
+class ComparadorRetangulos extends Questao{
+    @Override
+    public void Executar(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\ncomparador de áreas de retângulos");
+
+        System.out.print("\n Escreva a base do Retângulo A (CM): ");
+        int baseA = scanner.nextInt();
+        System.out.print("\n Escreva a altura do Retângulo A (CM):");
+        int alturaA = scanner.nextInt();
+
+        System.out.print("\n Escreva a base do Retângulo B (CM): ");
+        int baseB = scanner.nextInt();
+        System.out.print("\n Escreva a altura do Retângulo B (CM):");
+        int alturaB = scanner.nextInt();
+        
+        int areaA = calcularArea(baseA, alturaA);
+        int areaB = calcularArea(baseB, alturaB);
+        
+        System.out.println("\n Resultados:");
+        System.out.println("\n Área do Retângulo A: " + areaA +" cm\u00B2");
+        System.out.println("\n Área do Retângulo B: " + areaB +" cm\u00B2");
+
+        if(areaA > areaB) {
+            System. out.println("\n O Retângulo A possui a maior área.");
+        }else if (areaB > areaA) {
+            System.out.println("\n O Retângulo B possui a maior área.");
+        }else{
+            System.out.println("\n Ambos os retângulos possuem áreas iguais.");
+        }
+        scanner.close();
+    }
+
+
+    private int calcularArea(int base, int altura) {
+        return base * altura;
+    }
+
+}
+public class Main {
+    public static void main(String[] args) {
+        Questao questao = new ComparadorRetangulos();
+        questao.Executar();
+    }
+}
+
+//JAMILLY ESCOBAR GUIMARÃES J.E.G

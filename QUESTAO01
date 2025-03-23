@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+abstract class Questao {
+    public abstract void Executar();
+}
+class MaiorNumero extends Questao {
+    @Override
+    public void Executar(){ 
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("comparador de Números");
+        System.out.print("Escreva o primeiro número inteiro: ");
+        int num1 = scanner.nextInt();
+        
+        int num2;
+    
+        do {
+            System.out.print("Escreva o segundo número inteiro diferente do primeiro: ");
+            num2 = scanner.nextInt();
+            if (num1 == num2){
+            System.out.println(" os números devem ser distintos.tente de novo.");
+            }
+        
+    
+    } while (num1 == num2);
+
+    int maior = encontrarMaior(num1, num2);
+    System.out.println("\n o maior número é: "+ maior);
+
+    scanner.close();
+}
+
+    private int encontrarMaior(int a, int b){
+        return (a > b) ? a : b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Questao questao = new MaiorNumero();
+        questao.Executar();
+    }
+}
+
+//JAMILLY ESCOBAR GUIMARÃES J.E.G

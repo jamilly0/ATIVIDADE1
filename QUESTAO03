@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+abstract class Questao {
+    public abstract void  Executar();
+}
+
+class ConversorTemperatura extends Questao {
+    @Override
+    public void Executar(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n Conversor de Temperatura");
+        System.out.print("\n Escreva a Temperatura em Celsius: ");
+        double celsius = scanner.nextDouble();
+
+        double fahrenheit = converterParaFahrenheit(celsius);
+
+        System.out.printf("\n %.2f°C equivale a %.2f°F\n", celsius, fahrenheit);
+
+        scanner.close();
+    }
+private double converterParaFahrenheit(double celsius) {
+    return (celsius * 1.8) + 32;
+    } 
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Questao questao = new ConversorTemperatura();
+        questao.Executar();
+    }
+}
+
+
+//JAMILLY ESCOBAR GUIMARÃES J.E.G

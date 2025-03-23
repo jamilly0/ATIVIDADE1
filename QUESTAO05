@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+abstract class Questao {
+    public abstract void Executar();
+}
+
+class Frutaria extends Questao {
+    @Override
+    public void Executar() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n Frutaria - Cálculo do Valor da Compra "); // professor nao coloquei mercearia pq achei q vc ia tirar ponto
+        
+        System.out.print("\nEscreva a quantidade de morangos (Kg): ");
+        double kgMorango = scanner.nextDouble();
+
+        System.out.print("\n Escreva a quantidade de maçãs (Kg): ");
+        double kgMaca = scanner.nextDouble();
+
+        double precoMorango = (kgMorango <= 5) ? 7.50 : 5.30;
+        double precoMaca = (kgMaca <= 5) ? 3.50 : 2.80;
+
+        double totalMorango = kgMorango * precoMorango;
+        double totalMaca = kgMaca * precoMaca;
+        double totalCompra = totalMorango + totalMaca;
+
+        if ((kgMorango + kgMaca) <= 5 && totalCompra > 19) {
+            totalCompra *= 0.92;
+        }
+
+        System.out.printf("\n Valor total da compra: R$ %.2f\n", totalCompra);
+
+        scanner.close();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Questao questao = new Frutaria();
+        questao.Executar();
+    }
+}
+
+//JAMILLY ESCOBAR GUIMARÃES J.E.G

@@ -1,0 +1,36 @@
+import java.util.Scanner;
+abstract class Questao {
+    public abstract void Executar();
+}
+
+class ComparadorAlunos extends Questao{
+    @Override
+    public void Executar(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n Comparador de Quantidade de Alunos e Alunas");
+        System.out.print("\n Escreva o número de alunos: ");
+        int alunos =scanner.nextInt();
+
+        System.out.print("Escreva o número de alunas: ");
+        int alunas = scanner.nextInt();
+
+        System.out.println("\n Resultado:");
+        if (alunas > alunos){
+           System.out.println("Alunos: " + alunos);
+           System.out.println("Alunas: " + alunas);  
+        }else if (alunas > alunos) {
+            System.out.println("Alunas: " + alunas);
+            System.out.println("o número de alunos e alunas é igual: " + alunos);
+        }
+        scanner.close();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Questao questao = new ComparadorAlunos();
+        questao.Executar();
+    }
+}
+
+//JAMILLY ESCOBAR GUIMARÃES J.E.G
